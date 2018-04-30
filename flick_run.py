@@ -1,7 +1,9 @@
 #!/usr/bin/python3
 
 import signal
-from libs/Flick/flick import flicklib
+#from libs import Flick
+#from Flick import flick
+from Flick import flicklib
 from time import sleep
 from curses import wrapper
 from os import system
