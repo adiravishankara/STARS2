@@ -29,7 +29,7 @@ def spinny(delta):
     global some_value
     global airwheeltxtq
     some_value += delta
-    if some_value < :500
+    if some_value < 500:
         some_value = 500
     if some_value > 10000:
         some_value = 10000

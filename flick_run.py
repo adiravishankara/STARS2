@@ -34,7 +34,7 @@ def main(stdscr):
     airwheelcount = 0
     cmd = ""
 
-    While True:
+    while True:
 	if len(flicktxt) > 0:
 		if flicktxt == "east-west":
 			print(flicktxt)
