@@ -1,0 +1,7 @@
+cd libs
+git clone https://github.com/ptone/pyosc.git
+sudo python setup.py
+
+https://github.com/ptone/pyosc.git
+
+curl -sSL https://pisupp.ly/flickcode | sudo bash
