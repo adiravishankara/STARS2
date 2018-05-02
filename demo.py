@@ -108,6 +108,7 @@ def main(stdscr):
         datawin.addstr(1, 2, 'X Y Z     : ' + xyztxt)
         datawin.addstr(2, 2, 'Flick     : ' + flicktxt)
         datawin.addstr(3, 2, 'Airwheel  : ' + airwheeltxt)
+        datawin.addstr(4,2,'X Y Z: ' + x, y, z)
         
 #        client.send(OSCMessage("xyztxt",[xyztxt]))
 #        client.send(OSCMessage("flicktxt",[1]))
@@ -158,7 +159,7 @@ def main(stdscr):
             doubletaptxt = ''
             doubletapcount = 0
 
-        time.sleep(0.1)
+        time.sleep(0.2)
 
 wrapper(main)
 
