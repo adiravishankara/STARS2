@@ -96,7 +96,7 @@ def main(stdscr):
    # fwver_part1, fwver_part2 = fw_info['FwVersion'].split(';DSP:')
    # fwwin.addstr(7, 2, 'Firmware Version: ' + fwver_part1)
    # fwwin.addstr(8, 2, 'DSP: ' + fwver_part2)
-    fwwin.refresh()
+    #fwwin.refresh()
 
     # Update data window continuously until Control-C
     while True:
