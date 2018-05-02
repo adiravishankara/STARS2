@@ -75,9 +75,9 @@ def main(stdscr):
     global taptxt
     global doubletaptxt
 
-    x1 = 0
-    y1 = 0
-    z1= 0
+    x1 = ''
+    y1 = ''
+    z1= ''
     xyztxt = ''
     flicktxt = ''
     flickcount = 0
