@@ -8,12 +8,12 @@ from curses import wrapper
 from OSC import OSCClient, OSCMessage
 
 client = OSCClient()
-client.connect(("192.168.1.200",4559))
+client.connect(("192.168.1.60",4559))
 
 client.send(OSCMessage("STARTUP"))
 client.send(OSCMessage("THIS IS A VALUE"))
 
-some_value = 5000
+some_value = 500
 
 @flicklib.move()
 def move(x, y, z):
@@ -38,9 +38,9 @@ def spinny(delta):
     some_value += delta
     if some_value < 0:
         some_value = 0
-    if some_value > 10000:
-        some_value = 10000
-    airwheel =  (some_value/100)
+    if some_value > 1000:
+        some_value = 1000
+    airwheel =  (some_value/10)
     airwheeltxt = str(airwheel)
 
 
