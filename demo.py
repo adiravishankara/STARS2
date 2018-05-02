@@ -120,45 +120,45 @@ def main(stdscr):
 
 
         if len(flicktxt) > 0:
-            client.send(OSCMessage(flicktxt,[1]))
+            client.send(OSCMessage("a/"+flicktxt,[1]))
         elif len(airwheeltxt) > 0:
-            client.send(OSCMessage("airwheeltxt",[airwheel]))
+            client.send(OSCMessage("a/airwheeltxt",[airwheel]))
 
         elif x1 > 0:
-            client.send(OSCMessage("xyz",[x1,y1,z1]))
+            client.send(OSCMessage("a/xyz",[x1,y1,z1]))
 
 
         xyztxt = ''
 
-        if len(flicktxt) > 0 and flickcount < 5:
-            flickcount += 1
-        else:
-            flicktxt = ''
-            flickcount = 0
+        # if len(flicktxt) > 0 and flickcount < 5:
+        #     flickcount += 1
+        # else:
+        #     flicktxt = ''
+        #     flickcount = 0
 
-        if len(airwheeltxt) > 0 and airwheelcount < 5:
-            airwheelcount += 1
-        else:
-            airwheeltxt = ''
-            airwheelcount = 0
+        # if len(airwheeltxt) > 0 and airwheelcount < 5:
+        #     airwheelcount += 1
+        # else:
+        #     airwheeltxt = ''
+        #     airwheelcount = 0
 
-        if len(touchtxt) > 0 and touchcount < 5:
-            touchcount += 1
-        else:
-            touchtxt = ''
-            touchcount = 0
+        # if len(touchtxt) > 0 and touchcount < 5:
+        #     touchcount += 1
+        # else:
+        #     touchtxt = ''
+        #     touchcount = 0
 
-        if len(taptxt) > 0 and tapcount < 5:
-            tapcount += 1
-        else:
-            taptxt = ''
-            tapcount = 0
+        # if len(taptxt) > 0 and tapcount < 5:
+        #     tapcount += 1
+        # else:
+        #     taptxt = ''
+        #     tapcount = 0
 
-        if len(doubletaptxt) > 0 and doubletapcount < 5:
-            doubletapcount += 1
-        else:
-            doubletaptxt = ''
-            doubletapcount = 0
+        # if len(doubletaptxt) > 0 and doubletapcount < 5:
+        #     doubletapcount += 1
+        # else:
+        #     doubletaptxt = ''
+        #     doubletapcount = 0
 
         time.sleep(0.2)
 
