@@ -19,14 +19,12 @@ some_value = 5000
 def move(x, y, z):
     global xyztxt
     xyztxt = '{:5.3f} {:5.3f} {:5.3f}'.format(x,y,z)
-    client.send(OSCMessage("x",[x]))
-    client.send(OSCMessage("y",[y]))
-    client.send(OSCMessage("z",[z]))
+
 @flicklib.flick()
 def flick(start,finish):
     global flicktxt
     flicktxt = start + ' - ' + finish
-    client.send(OSCMessage(flicktxt,[1]))
+
 @flicklib.airwheel()
 def spinny(delta):
     global some_value
@@ -37,7 +35,7 @@ def spinny(delta):
     if some_value > 10000:
         some_value = 10000
     airwheeltxt = str(some_value/100)
-    client.send(OSCMessage("airwheeltxt",[airwheeltxt]))
+
 
 @flicklib.double_tap()
 def doubletap(position):
