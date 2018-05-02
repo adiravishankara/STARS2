@@ -18,10 +18,13 @@ some_value = 5000
 @flicklib.move()
 def move(x, y, z):
     global xyztxt
+    global x1
+    global y1
+    global z1
     xyztxt = '{:5.3f} {:5.3f} {:5.3f}'.format(x,y,z)
-    x = x
-    y = y
-    z = z
+    x1 = x
+    y1 = y
+    z1 = z
 @flicklib.flick()
 def flick(start,finish):
     global flicktxt
@@ -36,32 +39,32 @@ def spinny(delta):
         some_value = 0
     if some_value > 10000:
         some_value = 10000
-    airwheeltxt = str(some_value/100)
+    airwheeltxt = (some_value/100)
 
 
-@flicklib.double_tap()
-def doubletap(position):
-    global doubletaptxt
-    doubletaptxt = position
+# @flicklib.double_tap()
+# def doubletap(position):
+#     global doubletaptxt
+#     doubletaptxt = position
 
-@flicklib.tap()
-def tap(position):
-    global taptxt
-    taptxt = position
+# @flicklib.tap()
+# def tap(position):
+#     global taptxt
+#     taptxt = position
 
-@flicklib.touch()
-def touch(position):
-    global touchtxt
-    touchtxt = position
+# @flicklib.touch()
+# def touch(position):
+#     global touchtxt
+#     touchtxt = position
 
 #
 # Main display using curses
 #
 
 def main(stdscr):
-    global x
-    global y
-    global z
+    global x1
+    global y1
+    global z1
     global xyztxt
     global flicktxt
     global airwheeltxt
@@ -69,9 +72,9 @@ def main(stdscr):
     global taptxt
     global doubletaptxt
 
-    x = ''
-    y = ''
-    z = ''
+    x1 = ''
+    y1 = ''
+    z1= ''
     xyztxt = ''
     flicktxt = ''
     flickcount = 0
@@ -108,7 +111,7 @@ def main(stdscr):
         datawin.addstr(1, 2, 'X Y Z     : ' + xyztxt)
         datawin.addstr(2, 2, 'Flick     : ' + flicktxt)
         datawin.addstr(3, 2, 'Airwheel  : ' + airwheeltxt)
-        datawin.addstr(4,2,'X Y Z: ' + x, y, z)
+        datawin.addstr(4,2,'X Y Z: ' + x1, y1, z1)
         
 #        client.send(OSCMessage("xyztxt",[xyztxt]))
 #        client.send(OSCMessage("flicktxt",[1]))
@@ -123,7 +126,7 @@ def main(stdscr):
         elif len(airwheeltxt) > 0:
             client.send(OSCMessage("airwheeltxt",[airwheeltxt]))
 
-        else:
+        elif len(xyztxt) > 0:
             client.send(OSCMessage("xyz",[xyztxt]))
 
 
