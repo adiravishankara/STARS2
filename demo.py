@@ -8,7 +8,7 @@ from curses import wrapper
 from OSC import OSCClient, OSCMessage
 
 client = OSCClient()
-client.connect(("192.168.1.51",4559))
+client.connect(("192.168.1.200",4559))
 
 client.send(OSCMessage("STARTUP"))
 
