@@ -19,7 +19,9 @@ some_value = 5000
 def move(x, y, z):
     global xyztxt
     xyztxt = '{:5.3f} {:5.3f} {:5.3f}'.format(x,y,z)
-
+    x = x
+    y = y
+    z = z
 @flicklib.flick()
 def flick(start,finish):
     global flicktxt
@@ -57,6 +59,9 @@ def touch(position):
 #
 
 def main(stdscr):
+    global x
+    global y
+    global z
     global xyztxt
     global flicktxt
     global airwheeltxt
@@ -115,7 +120,7 @@ def main(stdscr):
             client.send(OSCMessage("x_val",[x]))
             client.send(OSCMessage("y_val",[y]))
             client.send(OSCMessage("z_val",[z]))
-            
+
         xyztxt = ''
 
         if len(flicktxt) > 0 and flickcount < 5:
