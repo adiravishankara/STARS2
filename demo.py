@@ -8,7 +8,7 @@ from curses import wrapper
 from OSC import OSCClient, OSCMessage
 
 client = OSCClient()
-client.connect(("192.168.0.15",4559))
+client.connect(("192.168.1.51",4559))
 
 client.send(OSCMessage("STARTUP"))
 
@@ -80,7 +80,7 @@ def main(stdscr):
 
     # Add title and footer
     exittxt = 'Control-C to exit'
-    title = '**** Flick Demo ****'
+    title = '**** STARS FLICK BOARD ****'
     stdscr.addstr( 0, (curses.COLS - len(title)) / 2, title)
     stdscr.addstr(22, (curses.COLS - len(exittxt)) / 2, exittxt)
     stdscr.refresh()
@@ -96,14 +96,13 @@ def main(stdscr):
         datawin.erase()
         datawin.border()
         datawin.addstr(1, 2, 'X Y Z     : ' + xyztxt)
-        client.send(OSCMessage(xyztxt,[1]))
         datawin.addstr(2, 2, 'Flick     : ' + flicktxt)
-        client.send(OSCMessage(flicktxt,[1]))
         datawin.addstr(3, 2, 'Airwheel  : ' + airwheeltxt)
+        
+        client.send(OSCMessage(xyztxt,[1]))
+        client.send(OSCMessage(flicktxt,[1]))
         client.send(OSCMessage(airwheeltxt,[1]))
-        # datawin.addstr(4, 2, 'Touch     : ' + touchtxt)
-        # datawin.addstr(5, 2, 'Tap       : ' + taptxt)
-        # datawin.addstr(6, 2, 'Doubletap : ' + doubletaptxt)
+
         datawin.refresh()
 
         xyztxt = ''
