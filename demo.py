@@ -69,6 +69,9 @@ def main(stdscr):
     global taptxt
     global doubletaptxt
 
+    x = ''
+    y = ''
+    z = ''
     xyztxt = ''
     flicktxt = ''
     flickcount = 0
@@ -117,9 +120,7 @@ def main(stdscr):
         if len(flicktxt) > 0:
             client.send(OSCMessage(flicktxt,[1]))
         else:
-            client.send(OSCMessage("x_val",[x]))
-            client.send(OSCMessage("y_val",[y]))
-            client.send(OSCMessage("z_val",[z]))
+            client.send(OSCMessage("xyz",[xyztxt]))
 
         xyztxt = ''
 
