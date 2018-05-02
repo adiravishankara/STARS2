@@ -96,11 +96,14 @@ def main(stdscr):
         datawin.erase()
         datawin.border()
         datawin.addstr(1, 2, 'X Y Z     : ' + xyztxt)
+        client.send(OSCMessage(xyztxt,[1]))
         datawin.addstr(2, 2, 'Flick     : ' + flicktxt)
+        client.send(OSCMessage(flicktxt,[1]))
         datawin.addstr(3, 2, 'Airwheel  : ' + airwheeltxt)
-        datawin.addstr(4, 2, 'Touch     : ' + touchtxt)
-        datawin.addstr(5, 2, 'Tap       : ' + taptxt)
-        datawin.addstr(6, 2, 'Doubletap : ' + doubletaptxt)
+        client.send(OSCMessage(airwheeltxt,[1]))
+        # datawin.addstr(4, 2, 'Touch     : ' + touchtxt)
+        # datawin.addstr(5, 2, 'Tap       : ' + taptxt)
+        # datawin.addstr(6, 2, 'Doubletap : ' + doubletaptxt)
         datawin.refresh()
 
         xyztxt = ''
