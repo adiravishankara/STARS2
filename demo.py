@@ -34,14 +34,14 @@ def flick(start,finish):
 def spinny(delta):
     global some_value
     global airwheeltxt
-    global airwheeltxt1
+    global airwheel
     some_value += delta
     if some_value < 0:
         some_value = 0
     if some_value > 10000:
         some_value = 10000
-    airwheeltxt = str(some_value/100)
-    airwheeltxt1 = (some_value/100)
+    airwheel =  (some_value/100)
+    airwheeltxt = str(airwheel)
 
 
 # @flicklib.double_tap()
@@ -70,7 +70,7 @@ def main(stdscr):
     global xyztxt
     global flicktxt
     global airwheeltxt
-    global airwheeltxt1
+    global airwheel
     global touchtxt
     global taptxt
     global doubletaptxt
@@ -82,7 +82,7 @@ def main(stdscr):
     flicktxt = ''
     flickcount = 0
     airwheeltxt = ''
-    airwheeltxt1 = 0
+    airwheel = some_value
     airwheelcount = 0
     touchtxt = ''
     touchcount = 0
@@ -115,22 +115,16 @@ def main(stdscr):
         datawin.addstr(1, 2, 'X Y Z     : ' + xyztxt)
         datawin.addstr(2, 2, 'Flick     : ' + flicktxt)
         datawin.addstr(3, 2, 'Airwheel  : ' + airwheeltxt)
-        #datawin.addstr(4,2,'X Y Z: ' + x1 + y1 +  z1)
-        
-#        client.send(OSCMessage("xyztxt",[xyztxt]))
-#        client.send(OSCMessage("flicktxt",[1]))
-#        client.send(OSCMessage("airwheeltxt",[1]))
-
         datawin.refresh()
 
 
 
         if len(flicktxt) > 0:
             client.send(OSCMessage(flicktxt,[1]))
-        elif len(airwheeltxt) > 0:
-            client.send(OSCMessage("airwheeltxt",[airwheeltxt1]))
+        elif len(airwheeltx t) > 0:
+            client.send(OSCMessage("airwheeltxt",[airwheel]))
 
-        elif len(xyztxt) > 0:
+        elif len(x1) > 0:
             client.send(OSCMessage("xyz",[x1,y1,z1]))
 
 
