@@ -107,6 +107,15 @@ def main(stdscr):
 
         datawin.refresh()
 
+
+
+        if len(flicktxt) > 0:
+            client.send(OSCMessage(flicktxt,[1]))
+        else:
+            client.send(OSCMessage("x_val",[x]))
+            client.send(OSCMessage("y_val",[y]))
+            client.send(OSCMessage("z_val",[z]))
+            
         xyztxt = ''
 
         if len(flicktxt) > 0 and flickcount < 5:
