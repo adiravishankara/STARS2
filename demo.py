@@ -8,9 +8,10 @@ from curses import wrapper
 from OSC import OSCClient, OSCMessage
 
 client = OSCClient()
-client.connect(("192.168.1.51",4559))
+client.connect(("192.168.1.200",4559))
 
 client.send(OSCMessage("STARTUP"))
+client.send(OSCMessage("THIS IS A VALUE"))
 
 some_value = 5000
 
@@ -99,9 +100,9 @@ def main(stdscr):
         datawin.addstr(2, 2, 'Flick     : ' + flicktxt)
         datawin.addstr(3, 2, 'Airwheel  : ' + airwheeltxt)
         
-        client.send(OSCMessage(xyztxt,[1]))
-        client.send(OSCMessage(flicktxt,[1]))
-        client.send(OSCMessage(airwheeltxt,[1]))
+#        client.send(OSCMessage("xyztxt",[xyztxt]))
+#        client.send(OSCMessage("flicktxt",[1]))
+#        client.send(OSCMessage("airwheeltxt",[1]))
 
         datawin.refresh()
 
