@@ -124,7 +124,7 @@ def main(stdscr):
         elif len(airwheeltxt) > 0:
             client.send(OSCMessage("a/airwheeltxt",[airwheel]))
 
-        elif x1 > 0:
+        elif x1 != "":
             client.send(OSCMessage("a/xyz",[x1,y1,z1]))
 
 
