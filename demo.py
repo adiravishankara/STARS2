@@ -119,10 +119,13 @@ def main(stdscr):
 
         if len(flicktxt) > 0:
             client.send(OSCMessage(flicktxt,[1]))
-        elif len(xyztxt) > 0:
+        elif len(airwheeltxt) > 0:
+            client.send(OSCMessage("airwheeltxt",[airwheeltxt]))
+
+        else:
             client.send(OSCMessage("xyz",[xyztxt]))
 
-        client.send(OSCMessage("airwheeltxt",[airwheeltxt]))
+
         xyztxt = ''
 
         if len(flicktxt) > 0 and flickcount < 5:
