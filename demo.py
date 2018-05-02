@@ -34,12 +34,14 @@ def flick(start,finish):
 def spinny(delta):
     global some_value
     global airwheeltxt
+    global airwheeltxt1
     some_value += delta
     if some_value < 0:
         some_value = 0
     if some_value > 10000:
         some_value = 10000
-    airwheeltxt = (some_value/100)
+    airwheeltxt = str(some_value/100)
+    airwheeltxt1 = (some_value/100)
 
 
 # @flicklib.double_tap()
@@ -68,17 +70,19 @@ def main(stdscr):
     global xyztxt
     global flicktxt
     global airwheeltxt
+    global airwheeltxt1
     global touchtxt
     global taptxt
     global doubletaptxt
 
-    x1 = ''
-    y1 = ''
-    z1= ''
+    x1 = 0
+    y1 = 0
+    z1= 0
     xyztxt = ''
     flicktxt = ''
     flickcount = 0
     airwheeltxt = ''
+    airwheeltxt1 = 0
     airwheelcount = 0
     touchtxt = ''
     touchcount = 0
@@ -124,7 +128,7 @@ def main(stdscr):
         if len(flicktxt) > 0:
             client.send(OSCMessage(flicktxt,[1]))
         elif len(airwheeltxt) > 0:
-            client.send(OSCMessage("airwheeltxt",[airwheeltxt]))
+            client.send(OSCMessage("airwheeltxt",[airwheeltxt1]))
 
         elif len(xyztxt) > 0:
             client.send(OSCMessage("xyz",[x1,y1,z1]))
