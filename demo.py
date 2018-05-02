@@ -158,7 +158,7 @@ def main(stdscr):
             doubletaptxt = ''
             doubletapcount = 0
 
-        time.sleep(0.1)
+        time.sleep(0.2)
 
 wrapper(main)
 
