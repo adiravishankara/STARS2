@@ -111,7 +111,7 @@ def main(stdscr):
         datawin.addstr(1, 2, 'X Y Z     : ' + xyztxt)
         datawin.addstr(2, 2, 'Flick     : ' + flicktxt)
         datawin.addstr(3, 2, 'Airwheel  : ' + airwheeltxt)
-        datawin.addstr(4,2,'X Y Z: ' + x1, y1, z1)
+        datawin.addstr(4,2,'X Y Z: ' + x1 + y1 +  z1)
         
 #        client.send(OSCMessage("xyztxt",[xyztxt]))
 #        client.send(OSCMessage("flicktxt",[1]))
