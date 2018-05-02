@@ -5,6 +5,12 @@ import flicklib
 import time
 import curses
 from curses import wrapper
+from OSC import OSCClient, OSCMessage
+
+client = OSCClient()
+client.connect(("192.168.0.15",4559))
+
+client.send(OSCMessage("STARTUP"))
 
 some_value = 5000
 
@@ -84,19 +90,6 @@ def main(stdscr):
     datawin = curses.newwin( 8, curses.COLS - 6,  2, 3)
     fwwin   = curses.newwin(10, curses.COLS - 6, 11, 3)
 
-    # Fill firmware info window.
-   # fwwin.erase()
-   # fwwin.border()
-   # fwwin.addstr(1, 2, 'Firmware valid: ' + 'Yes' if fw_info['FwValid'] == 0xaa else 'No')
-   # fwwin.addstr(2, 2, 'Hardware Revison: ' + str(fw_info['HwRev'][0]) + '.' + str(fw_info['HwRev'][1]))
-   # fwwin.addstr(3, 2, 'Params Start Addr: ' + '0x{:04x}'.format(fw_info['ParamStartAddr']))
-   # fwwin.addstr(4, 2, 'Library Loader Version: ' + str(fw_info['LibLoaderVer'][0]) + '.' + str(fw_info['LibLoaderVer'][1]))
-   # fwwin.addstr(5, 2, 'Library Loader Platform: ' + 'Hillstar' if fw_info['LibLoaderPlatform'] == 21 else 'Woodstar')
-   # fwwin.addstr(6, 2, 'Firmware Start Addr: 0x' + '{:04x}'.format(fw_info['FwStartAddr']))
-   # fwver_part1, fwver_part2 = fw_info['FwVersion'].split(';DSP:')
-   # fwwin.addstr(7, 2, 'Firmware Version: ' + fwver_part1)
-   # fwwin.addstr(8, 2, 'DSP: ' + fwver_part2)
-    #fwwin.refresh()
 
     # Update data window continuously until Control-C
     while True:
