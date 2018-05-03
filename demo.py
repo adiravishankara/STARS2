@@ -122,10 +122,10 @@ def main(stdscr):
         if len(flicktxt) > 0:
             client.send(OSCMessage("a/"+flicktxt,[1]))
         elif len(airwheeltxt) > 0:
-            client.send(OSCMessage("a/airwheeltxt",[airwheel]))
+            client.send(OSCMessage("a/airwheeltxt",[int(airwheel)]))
 
         elif x1 != "":
-            client.send(OSCMessage("a/xyz",[x1*100,y1*100,z1*100]))
+            client.send(OSCMessage("a/xyz",[int(x1*100),int(y1*100),int(z1*100)]))
 
 
         xyztxt = ''
