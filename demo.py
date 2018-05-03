@@ -125,7 +125,7 @@ def main(stdscr):
             client.send(OSCMessage("a/airwheeltxt",[airwheel]))
 
         elif x1 != "":
-            client.send(OSCMessage("a/xyz",[x1,y1,z1]))
+            client.send(OSCMessage("a/xyz",[x1*100,y1*100,z1*100]))
 
 
         xyztxt = ''
