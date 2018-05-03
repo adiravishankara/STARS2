@@ -131,9 +131,9 @@ def main(stdscr):
         xyztxt = ''
         flicktxt = ''
         airwheeltxt = ''
-        x1 = ""
-        y1 = ""
-        z1 = ""
+        x1 = 0
+        y1 = 0
+        z1 = 0
 
         # if len(flicktxt) > 0 and flickcount < 5:
         #     flickcount += 1
